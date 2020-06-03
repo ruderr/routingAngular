@@ -1,27 +1,32 @@
-# RoutingDemo
+# Routing en Angular
+## Ejercicio para entender el uso de las rutas en Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4.
+## 1.- Creamos un nuevo proyecto:
+`ng new routingDemo`
 
-## Development server
+## 2.- Dentro de proyecto, creamos los siguientes componentes:
+`ng n c componente0
+ng n c componente1
+ng n c componente2
+`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## 3.- En el index.html agregamos los links para cargas las librerias de Bootstrap:
+- Vamos a la página de `Bootstrap.com` y hacemos click en download
+- Buscamos BootstrapCDN y copiamos ambos grupos de librerias en nuestro `index.html`
 
-## Code scaffolding
+## En el `app.module.ts` agregamos las librerias necesarias para el enrutamiento:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+`import { Router, RouterModule } from '@angular/router'`
 
-## Build
+Definimos a continuación nuestra hoja de navegación:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+`
+const routes: Routes = [
+  {path: '', component: Componente0Component},
+  {path: 'componente1', component: Componente1Component},
+  {path: 'componente2', component: Componente2Component},
+  {path: '**', component: Componente0Component}
+];
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+// El último path '**' es para cuando se hace referencia a cualquier ruta no definida
+`

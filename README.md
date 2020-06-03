@@ -5,8 +5,7 @@
 `ng new routingDemo`
 
 ## 2.- Dentro de proyecto, creamos los siguientes componentes:
-`
-ng n c componente0
+`ng n c componente0
 ng n c componente1
 ng n c componente2
 `
@@ -15,7 +14,7 @@ ng n c componente2
 - Vamos a la página de `Bootstrap.com` y hacemos click en download
 - Buscamos BootstrapCDN y copiamos ambos grupos de librerias en nuestro `index.html`
 
-## En el `app.module.ts` agregamos las librerias necesarias para el enrutamiento:
+## 4.- En el `app.module.ts` agregamos las librerias necesarias para el enrutamiento:
 
 `import { Router, RouterModule } from '@angular/router'`
 
@@ -32,7 +31,7 @@ const routes: Routes = [
 // El último path '**' es para cuando se hace referencia a cualquier ruta no definida
 `
 
-Añadimos el módulo RoutesModule a los imports y le indicamos el objeto de navegación:
+## 5.- Añadimos el módulo RoutesModule a los imports y le indicamos el objeto de navegación:
 
 `
   imports: [
@@ -45,7 +44,7 @@ Añadimos el módulo RoutesModule a los imports y le indicamos el objeto de nave
 
 Así la aplicación ya está usando la ruta de navegación que definimos.
 
-## Trabajamos ahora en nuestro componente principal o `app.component.html`
+## 6.- Trabajamos ahora en nuestro componente principal o `app.component.html`
 
 `
 <div class="container">
@@ -76,13 +75,13 @@ Así la aplicación ya está usando la ruta de navegación que definimos.
 </div>
 `
 
-## Vamos a agregar rutas con parámetros. En nuestro objeto de rutas añadimos las siguientes:
+## 7.- Vamos a agregar rutas con parámetros. En nuestro objeto de rutas añadimos las siguientes:
 `
   {path: 'componente1/:id', component: Componente1Component},
   {path: 'componente2/:id/:titulo', component: Componente2Component},
 `
 
-# Y añadimos los enlaces con parametros en el `app.component.html`
+## 8.- Y añadimos los enlaces con parametros en el `app.component.html`
 `
         <li>
           <a [routerLink]="['/componente1', 700]">Pasar un parametro</a>
@@ -92,7 +91,7 @@ Así la aplicación ya está usando la ruta de navegación que definimos.
         </li>
 `
 
-# A continuación, modificamos el `componente1.component.ts` para recibir los parametros. Añadimos unos imports e incluimos por medio de inyección de dependencias el router en el constructor:
+## 9.- A continuación, modificamos el `componente1.component.ts` para recibir los parametros. Añadimos unos imports e incluimos por medio de inyección de dependencias el router en el constructor:
 `
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute} from '@angular/router';
@@ -118,7 +117,7 @@ export class Componente1Component implements OnInit {
 }
 `
 
-## Y ahora hacemos lo mismo con el `app.compoente2.component.ts:
+## 10.- Y ahora hacemos lo mismo con el `app.compoente2.component.ts:
 `
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute} from '@angular/router'
